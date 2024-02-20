@@ -6,11 +6,6 @@ class CommentsController < ApplicationController
     comment.body = params.fetch("query_body")
     comment.save
     
-    if comment.valid?
-      comment.save
-      redirect_to("/venues/#{comment.venue_id}", { :notice => "Comment created successfully." })
-    else
-      redirect_to("/venues/#{comment.venue_id}", { :notice => "Comment failed to create successfully." })
-    end
+    redirect_to("/venues/#{comment.venue_id}")
   end
 end
